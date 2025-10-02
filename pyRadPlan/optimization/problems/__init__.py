@@ -1,7 +1,8 @@
-"""Treatment planning problem definitions and formulations."""
+"""A module for the treatment planning problems."""
 
-from ._optiprob import NonLinearPlanningProblem, PlanningProblem
 from ._nonlin_fluence import NonLinearFluencePlanningProblem
+from ._optiprob import NonLinearPlanningProblem, PlanningProblem
+
 from ._factory import get_available_problems, get_problem, get_problem_from_pln, register_problem
 
 register_problem(NonLinearFluencePlanningProblem)

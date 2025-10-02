@@ -1,3 +1,5 @@
+"Fluence optimization function."
+
 import numpy as np
 
 from pyRadPlan.ct import CT, validate_ct

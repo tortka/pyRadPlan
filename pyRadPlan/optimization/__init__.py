@@ -1,8 +1,15 @@
-"""Treatment plan optimization algorithms and objectives."""
+"A module for treatment plan optimization."
 
-# Author: Tim Ortkamp <tim.ortkamp@kit.edu>, 2023
-
-from .objectives import Objective
 from ._fluence_optimization import fluence_optimization
+from ._single_plan_optimization import SinglePlanOptimizer
 
-__all__ = ["fluence_optimization", "Objective"]
+from . import functions, operators, problems, solvers, strategies
+
+__all__ = [
+    "fluence_optimization",
+    "functions",
+    "operators",
+    "problems",
+    "solvers",
+    "strategies"
+    ]

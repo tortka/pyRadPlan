@@ -1,27 +1,26 @@
-"""Optimization solvers for treatment planning problems."""
-
-from ._factory import register_solver, get_available_solvers, get_solver
-
-try:
-    from ._ipopt import OptimizerIpopt
-
-    register_solver(OptimizerIpopt)
-
-except ImportError:
-    OptimizerIpopt = None
+"""A module for the solvers."""
 
 from ._base_solvers import SolverBase, NonLinearOptimizer
-from ._scipy_solver import OptimizerSciPy
 
-register_solver(OptimizerSciPy)
+try:
+    from ._ipyopt import IpyoptSolver
+    register_solver(IpyoptSolver)
+
+except ImportError:
+    IpyoptSolver = None
+    
+from ._scipy import SciPySolver
+from ._factory import register_solver, get_available_solvers, get_solver
+
+register_solver(SciPySolver)
 
 
 __all__ = [
-    "OptimizerIpopt",
-    "OptimizerSciPy",
-    "SolverBase",
     "NonLinearOptimizer",
-    "register_solver",
+    "IpyoptSolver",
+    "SciPySolver",
+    "SolverBase",
     "get_available_solvers",
     "get_solver",
-]
+    "register_solver"
+	]
